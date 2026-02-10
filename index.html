@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Meu Negócio | Apareça no Google Maps e Atraia Clientes</title>
+    <meta name="description" content="Cadastro e otimização profissional no Google Meu Negócio. Apareça no Google Maps, atraia mais clientes.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #10b981;
+            --secondary-light: #d1fae5;
+            --accent: #f59e0b;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --gradient-1: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            --gradient-2: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-3: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* HEADER / NAV */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo span:first-child {
+            font-size: 1.8rem;
+            -webkit-text-fill-color: unset;
+            background: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient-1);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* MENU SANDUÍCHE */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            padding: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-toggle.active {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem 1.5rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.3s ease-out;
+                z-index: 50;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.8rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2563eb 100%);
+            color: white;
+            padding: 100px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: var(--gradient-2);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-4px);
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        /* SECTION COMMON */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3.5rem;
+            margin-top: 1rem;
+        }
+
+        /* SERVIÇOS */
+        .servicos {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .servico-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .servico-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .servico-card:hover::before {
+            left: 100%;
+        }
+
+        .servico-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease-out;
+        }
+
+        .servico-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .servico-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
+
+        .servico-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s;
+        }
+
+        .servico-card:hover .servico-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: var(--gradient-3);
+        }
+
+        .servico-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .servico-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .servico-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* BENEFÍCIOS */
+        .beneficios {
+            background: linear-gradient(180deg, white 0%, #f8fafc 100%);
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .beneficio {
+            text-align: center;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beneficio::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--primary), transparent);
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        .beneficio:hover::before {
+            opacity: 0.1;
+            top: -30%;
+        }
+
+        .beneficio:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .beneficio-icon {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            display: block;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .beneficio:hover .beneficio-icon {
+            transform: scale(1.2) rotate(20deg);
+        }
+
+        .beneficio h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .beneficio p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* COMPLEMENTOS */
+        .complementos {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .complementos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .complemento-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .complemento-item::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        .complemento-item:hover::before {
+            top: 0;
+            opacity: 0.1;
+        }
+
+        .complemento-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+        }
+
+        .complemento-item h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .complemento-item:hover h4 {
+            color: var(--primary);
+        }
+
+        .complemento-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CONFIANÇA */
+        .confianca-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .confianca {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confianca::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary), transparent);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .confianca h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .confianca p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CTA FINAL */
+        .cta-final {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #10b981 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .cta-final::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .cta-final h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 2;
+            font-weight: 800;
+        }
+
+        .cta-final p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0.6rem 0;
+            opacity: 0.8;
+        }
+
+        /* CONTADOR */
+        .counter {
+            display: inline-block;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 60px 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .cta-final h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .confianca {
+                padding: 2rem;
+            }
+        }
+
+        /* PULSING DOT */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* BOTÃO FLUTUANTE WHATSAPP */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100px) scale(0.8);
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.15);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.5);
+        }
+
+        .floating-whatsapp:active {
+            transform: scale(0.95);
+        }
+
+        /* Animação de pulso */
+        @keyframes float-pulse {
+            0%, 100% {
+                box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 15px 50px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        .floating-whatsapp.pulse-btn {
+            animation: float-pulse 2s ease-in-out infinite;
+        }
+
+        /* TOOLTIP */
+        .floating-whatsapp::before {
+            content: 'Chamar no WhatsApp';
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-whatsapp:hover::before {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BADGE - Número de mensagens */
+        .floating-whatsapp::after {
+            content: '1';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);
+            animation: badge-bounce 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        @keyframes badge-bounce {
+            0% {
+                transform: scale(0.3) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+
+            .floating-whatsapp::before {
+                top: -45px;
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5561981013539?text=Oi!%20Gostaria%20de%20saber%20mais%20sobre%20o%20cadastro%20no%20Google%20Meu%20Negócio" class="floating-whatsapp" id="floatingWhatsapp" target="_blank" rel="noopener noreferrer">
+        💬
+    </a>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <span>📍</span>
+                <span>GoogleMapsPro</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#complementos">Extras</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Apareça no <span>Google Maps</span> e Atenda Mais Clientes</h1>
+            <p>Seu negócio no topo das buscas locais. Mais visibilidade, mais chamadas, mais vendas.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5561981013539?text=Oi!%20Gostaria%20de%20saber%20mais%20sobre%20o%20cadastro%20no%20Google%20Meu%20Negócio" class="btn-primary pulse">
+                    💬 Fale no WhatsApp Agora
+                </a>
+                <a href="#servicos" class="btn-secondary">
+                    ↓ Conheça Nossos Serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS PRINCIPAIS -->
+    <section id="servicos" class="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">Tudo que sua empresa precisa para dominar o Google Maps</p>
+        
+        <div class="servicos-grid">
+            <div class="servico-card reveal">
+                <div class="servico-icon">📋</div>
+                <h3>Cadastro no Google Maps</h3>
+                <p>Criamos seu perfil profissional do zero. Seu negócio aparece nas buscas locais com informações completas e verificadas.</p>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon">🏢</div>
+                <h3>Google Meu Negócio Completo</h3>
+                <p>Perfil otimizado com foto de capa, logotipo, categorias corretas, horários e todos os detalhes essenciais.</p>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon">⚙️</div>
+                <h3>Otimização Total</h3>
+                <p>Organizamos seu perfil para máxima visibilidade. Fotos, categorias estratégicas, descrição atrativa e contatos.</p>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon">📸</div>
+                <h3>Galeria Profissional</h3>
+                <p>Adicionamos fotos de qualidade que atraem clientes. Seu negócio fica profissional, confiável e irresistível.</p>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon">🔍</div>
+                <h3>Buscas Locais Premium</h3>
+                <p>Seu negócio aparece quando clientes procuram por você. Visibilidade máxima na sua região.</p>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon">✅</div>
+                <h3>Manutenção Contínua</h3>
+                <p>Mantemos seu perfil sempre atualizado, com novas fotos, respostas e tudo para você ficar na frente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="beneficios">
+        <h2 class="section-title">Por Que Investir no Google Maps?</h2>
+        <p class="section-subtitle">Resultados práticos que impulsionam seu negócio</p>
+        
+        <div class="beneficios-grid">
+            <div class="beneficio reveal">
+                <span class="beneficio-icon">☎️</span>
+                <h3>Mais Ligações</h3>
+                <p>Clientes encontram seu número com um toque. Aumento direto de contatos qualificados.</p>
+            </div>
+
+            <div class="beneficio reveal">
+                <span class="beneficio-icon">🚗</span>
+                <h3>Mais Visitas</h3>
+                <p>Apareça no mapa quando alguém procura. Mais pessoas encontrando sua loja facilmente.</p>
+            </div>
+
+            <div class="beneficio reveal">
+                <span class="beneficio-icon">💰</span>
+                <h3>Mais Vendas</h3>
+                <p>Visibilidade + contatos = mais oportunidades. Cresça seu faturamento em pouco tempo.</p>
+            </div>
+
+            <div class="beneficio reveal">
+                <span class="beneficio-icon">🛡️</span>
+                <h3>Confiança Garantida</h3>
+                <p>Perfil profissional transmite segurança. Clientes confiam mais em você.</p>
+            </div>
+
+            <div class="beneficio reveal">
+                <span class="beneficio-icon">🎯</span>
+                <h3>Público-Alvo Perfeito</h3>
+                <p>Atraia clientes que realmente buscam seu serviço. Sem desperdício de tempo ou dinheiro.</p>
+            </div>
+
+            <div class="beneficio reveal">
+                <span class="beneficio-icon">📊</span>
+                <h3>Análise Detalhada</h3>
+                <p>Veja quantas pessoas encontram você, clicam, ligam. Dados reais do seu crescimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONFIANÇA -->
+    <section class="confianca-section">
+        <div class="confianca reveal">
+            <h3>✨ Somos Especialistas em Google Maps</h3>
+            <p>Trabalhamos exclusivamente com cadastro e otimização no Google Meu Negócio. Sabemos exatamente como fazer seu negócio aparecer nas buscas locais, receber mais clientes e crescer. Usamos as melhores práticas do Google, respeitamos todas as diretrizes e garantimos resultados reais e rápidos.</p>
+        </div>
+    </section>
+
+    <!-- COMPLEMENTOS -->
+    <section id="complementos" class="complementos">
+        <h2 class="section-title">Serviços Complementares</h2>
+        <p class="section-subtitle">Potencialize ainda mais sua presença digital</p>
+        
+        <div class="complementos-grid">
+            <div class="complemento-item reveal">
+                <h4>🌐 Landing Page Profissional</h4>
+                <p>Página web moderna com WhatsApp integrado. Converta visitas em clientes com design irresistível.</p>
+            </div>
+
+            <div class="complemento-item reveal">
+                <h4>📱 Presença Digital Total</h4>
+                <p>Configuração de redes sociais, conteúdo inicial e estratégia simples para pequenos negócios.</p>
+            </div>
+
+            <div class="complemento-item reveal">
+                <h4>⚡ Automações com Excel</h4>
+                <p>Macros VBA inteligentes. Automatize tarefas, organize dados e economize horas de trabalho.</p>
+            </div>
+
+            <div class="complemento-item reveal">
+                <h4>🔧 Soluções Personalizadas</h4>
+                <p>Pequenos sistemas sob demanda. De controle de clientes até gestão de estoque.</p>
+            </div>
+
+            <div class="complemento-item reveal">
+                <h4>📧 Email Marketing Eficaz</h4>
+                <p>Campanhas simples para manter clientes informados sobre seus serviços e promoções.</p>
+            </div>
+
+            <div class="complemento-item reveal">
+                <h4>💬 Gestão de Mensagens WhatsApp</h4>
+                <p>Organize conversas e implemente respostas automáticas. Atendimento profissional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <h2>Coloque Sua Empresa no Google Maps Hoje</h2>
+        <p>Não espere mais. Comece a receber clientes pelo Google Maps agora mesmo.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/5561981013539?text=Oi!%20Quero%20colocar%20meu%20negócio%20no%20Google%20Maps%20agora!" class="btn-primary">
+                💬 Quero Começar Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 GoogleMapsPro. Todos os direitos reservados.</p>
+        <p>Especialistas em Google Meu Negócio e Aparecer no Google Maps</p>
+    </footer>
+
+    <script>
+        // Menu Sanduíche Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickInsideToggle = menuToggle.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickInsideToggle && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mouse follow effect em cards
+        document.querySelectorAll('.servico-card, .beneficio').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Efeito de digitação no título - DESABILIDADO
+        // const titleElement = document.querySelector('.hero h1');
+        // if (titleElement) {
+        //     const originalText = titleElement.innerText;
+        //     titleElement.innerText = '';
+        //     let index = 0;
+        //
+        //     const type = () => {
+        //         if (index < originalText.length) {
+        //             titleElement.innerText += originalText[index];
+        //             index++;
+        //             setTimeout(type, 30);
+        //         }
+        //     };
+        //
+        //     setTimeout(type, 500);
+        // }
+
+        // Botão flutuante WhatsApp
+        const floatingWhatsapp = document.getElementById('floatingWhatsapp');
+        let isScrolling = false;
+
+        window.addEventListener('scroll', () => {
+            // Mostrar botão após 300px de scroll
+            if (window.scrollY > 300) {
+                if (!isScrolling) {
+                    floatingWhatsapp.classList.add('show');
+                    floatingWhatsapp.classList.add('pulse-btn');
+                    isScrolling = true;
+                }
+            } else {
+                if (isScrolling) {
+                    floatingWhatsapp.classList.remove('show');
+                    floatingWhatsapp.classList.remove('pulse-btn');
+                    isScrolling = false;
+                }
+            }
+        });
+
+        // Efeito ao clicar no botão
+        floatingWhatsapp.addEventListener('click', function() {
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+
+        // Atualizar número do WhatsApp no botão flutuante
+        floatingWhatsapp.href = floatingWhatsapp.href.replace(/\d{13}/, '5561981013539');
+    </script>
+</body>
+</html>
