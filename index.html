@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Meu Negócio | Apareça no Google Maps e Atraia Clientes</title>
-    <meta name="description" content="Cadastro e otimização profissional no Google Meu Negócio. Apareça no Google Maps, atraia mais clientes.">
+    <title>Cafe Flow | Google Meu Negócio e Apareça no Google Maps</title>
+    <meta name="description" content="Cafe Flow - Cadastro e otimização profissional no Google Meu Negócio. Apareça no Google Maps, atraia mais clientes.">
     <style>
         * {
             margin: 0;
@@ -79,10 +79,16 @@
             transform: scale(1.05);
         }
 
-        .logo span:first-child {
-            font-size: 1.8rem;
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
             -webkit-text-fill-color: unset;
             background: none;
+        }
+
+        .logo span {
+            -webkit-text-fill-color: unset;
         }
 
         .nav-links {
@@ -824,8 +830,119 @@
             }
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
+        /* VALIDAÇÕES */
+        .validacoes {
+            background: linear-gradient(180deg, white 0%, #f8fafc 100%);
+        }
+
+        .validacoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .validacao-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .validacao-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-2);
+            transition: left 0.4s ease-out;
+        }
+
+        .validacao-card:hover::before {
+            left: 100%;
+        }
+
+        .validacao-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+            border-color: var(--secondary);
+        }
+
+        .validacao-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .validacao-avatar {
+            font-size: 2.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary-light);
+            border-radius: 50%;
+        }
+
+        .validacao-info h4 {
+            font-size: 1rem;
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .validacao-negocio {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0.2rem 0 0 0;
+        }
+
+        .validacao-stars {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .validacao-texto {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* STATS */
+        .validacoes-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 16px;
+        }
+
+        .stat {
+            text-align: center;
+            color: white;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            font-size: 1rem;
+            opacity: 0.95;
         }
 
         /* BOTÃO FLUTUANTE WHATSAPP */
@@ -964,8 +1081,8 @@
     <header>
         <nav>
             <a href="#" class="logo">
-                <span>📍</span>
-                <span>GoogleMapsPro</span>
+                <img src="img/logo.png" alt="Cafe Flow Logo" class="logo-img">
+                <span>Cafe Flow</span>
             </a>
             <button class="menu-toggle" id="menuToggle">☰</button>
             <ul class="nav-links" id="navLinks">
@@ -1088,6 +1205,105 @@
         </div>
     </section>
 
+    <!-- VALIDAÇÕES DE CLIENTES -->
+    <section class="validacoes">
+        <h2 class="section-title">Clientes que Já Tiveram Esse Suporte</h2>
+        <p class="section-subtitle">Veja o que nossos clientes alcançaram com a Cafe Flow</p>
+        
+        <div class="validacoes-grid">
+            <div class="validacao-card reveal">
+                <div class="validacao-header">
+                    <div class="validacao-avatar">👨‍💼</div>
+                    <div class="validacao-info">
+                        <h4>Carlos Souza</h4>
+                        <p class="validacao-negocio">Restaurante Gourmet</p>
+                    </div>
+                </div>
+                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
+                <p class="validacao-texto">"Aumentei minhas reservas bastante em alguns meses. A Cafe Flow fez toda a diferença!"</p>
+            </div>
+
+            <div class="validacao-card reveal">
+                <div class="validacao-header">
+                    <div class="validacao-avatar">👩‍💼</div>
+                    <div class="validacao-info">
+                        <h4>Marina Costa</h4>
+                        <p class="validacao-negocio">Consultório Odontológico</p>
+                    </div>
+                </div>
+                <div class="validacao-stars">⭐⭐⭐⭐</div>
+                <p class="validacao-texto">"Meu consultório ficou visível no Google Maps. Recebo mais ligações agora. Bom custo-benefício."</p>
+            </div>
+
+            <div class="validacao-card reveal">
+                <div class="validacao-header">
+                    <div class="validacao-avatar">👨‍🔧</div>
+                    <div class="validacao-info">
+                        <h4>Roberto Silva</h4>
+                        <p class="validacao-negocio">Encanador Profissional</p>
+                    </div>
+                </div>
+                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
+                <p class="validacao-texto">"Minha agenda ficou cheia de chamados. Valeu muito a pena investir nesse serviço mesmo."</p>
+            </div>
+
+            <div class="validacao-card reveal">
+                <div class="validacao-header">
+                    <div class="validacao-avatar">👩‍🏫</div>
+                    <div class="validacao-info">
+                        <h4>Juliana Pereira</h4>
+                        <p class="validacao-negocio">Academia de Pilates</p>
+                    </div>
+                </div>
+                <div class="validacao-stars">⭐⭐⭐</div>
+                <p class="validacao-texto">"Teve alguns pontos que não esperava, mas no geral ajudou. Poderia melhorar o acompanhamento."</p>
+            </div>
+
+            <div class="validacao-card reveal">
+                <div class="validacao-header">
+                    <div class="validacao-avatar">👨‍🍳</div>
+                    <div class="validacao-info">
+                        <h4>Felipe Santos</h4>
+                        <p class="validacao-negocio">Padaria Artesanal</p>
+                    </div>
+                </div>
+                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
+                <p class="validacao-texto">"As pessoas encontram minha padaria facilmente. Ótimo retorno! Também fiz a planilha de controle que me ajudou bastante."</p>
+            </div>
+
+            <div class="validacao-card reveal">
+                <div class="validacao-header">
+                    <div class="validacao-avatar">👩‍⚕️</div>
+                    <div class="validacao-info">
+                        <h4>Dra. Luciana</h4>
+                        <p class="validacao-negocio">Clínica Médica</p>
+                    </div>
+                </div>
+                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
+                <p class="validacao-texto">"Minha clínica ficou muito mais visível no Google Maps. Recomendo o trabalho deles!"</p>
+            </div>
+        </div>
+
+        <div class="validacoes-stats reveal">
+            <div class="stat">
+                <h3>20+</h3>
+                <p>Clientes Apoiados</p>
+            </div>
+            <div class="stat">
+                <h3>4.7 ⭐</h3>
+                <p>Avaliação Média</p>
+            </div>
+            <div class="stat">
+                <h3>💰</h3>
+                <p>Custo Benefício</p>
+            </div>
+            <div class="stat">
+                <h3>✅</h3>
+                <p>Recomendado!</p>
+            </div>
+        </div>
+    </section>
+
     <!-- COMPLEMENTOS -->
     <section id="complementos" class="complementos">
         <h2 class="section-title">Serviços Complementares</h2>
@@ -1139,7 +1355,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 GoogleMapsPro. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Cafe Flow. Todos os direitos reservados.</p>
         <p>Especialistas em Google Meu Negócio e Aparecer no Google Maps</p>
     </footer>
 
