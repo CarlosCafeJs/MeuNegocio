@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Flow | Google Meu Negócio e Apareça no Google Maps</title>
-    <meta name="description" content="Cafe Flow - Cadastro e otimização profissional no Google Meu Negócio. Apareça no Google Maps, atraia mais clientes.">
+    <meta name="description" content="Cafe Flow - Cadastro, otimização e gestão profissional no Google Meu Negócio. Apareça no Google Maps, atraia clientes locais, aumente visibilidade digital e gere mais ligações para seu negócio.">
+    <meta name="keywords" content="Google Meu Negócio, Google Maps, Google Empresas, cadastro Google Maps, otimização Google Maps, aparecer no Google Maps, visibilidade local, clientes locais, marketing local, SEO local, busca local, mapa Google, perfil comercial, negócio online">
     <style>
         * {
             margin: 0;
@@ -13,19 +14,19 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --primary-light: #3b82f6;
-            --secondary: #10b981;
-            --secondary-light: #d1fae5;
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #a78bfa;
+            --secondary: #ec4899;
+            --secondary-light: #fbcfe8;
             --accent: #f59e0b;
             --text-dark: #0f172a;
             --text-light: #64748b;
             --bg-dark: #0f172a;
             --bg-light: #f8fafc;
             --border: #e2e8f0;
-            --gradient-1: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            --gradient-2: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-1: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            --gradient-2: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
             --gradient-3: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
         }
 
@@ -37,19 +38,19 @@
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--bg-light);
+            background-color: #1e1b4b;
             overflow-x: hidden;
         }
 
         /* HEADER / NAV */
         header {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(15, 13, 43, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         nav {
@@ -99,7 +100,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: white;
             font-size: 0.95rem;
             font-weight: 600;
             position: relative;
@@ -128,17 +129,18 @@
             border: none;
             cursor: pointer;
             font-size: 1.5rem;
-            color: var(--text-dark);
+            color: white;
             padding: 0.5rem;
             transition: all 0.3s;
         }
 
         .menu-toggle:hover {
             transform: scale(1.1);
+            color: #ec4899;
         }
 
         .menu-toggle.active {
-            color: var(--primary);
+            color: #8b5cf6;
         }
 
         @media (max-width: 768px) {
@@ -156,12 +158,12 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: white;
+                background: rgba(15, 13, 43, 0.98);
                 flex-direction: column;
                 gap: 1rem;
                 padding: 2rem 1.5rem;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
                 animation: slideDown 0.3s ease-out;
                 z-index: 50;
             }
@@ -172,7 +174,8 @@
 
             .nav-links a {
                 padding: 0.8rem 0;
-                border-bottom: 1px solid var(--border);
+                border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+                color: white;
             }
 
             .nav-links a:last-child {
@@ -193,7 +196,7 @@
 
         /* HERO SECTION */
         .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2563eb 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #2d1b5e 50%, #8b5cf6 100%);
             color: white;
             padding: 100px 2rem;
             text-align: center;
@@ -208,7 +211,7 @@
             right: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
         }
@@ -220,7 +223,7 @@
             left: -5%;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 8s ease-in-out infinite reverse;
         }
@@ -278,7 +281,7 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -300,7 +303,7 @@
 
         .btn-primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.4);
         }
 
         .btn-primary:active {
@@ -374,7 +377,7 @@
             font-weight: 800;
             margin-bottom: 1rem;
             text-align: center;
-            color: var(--text-dark);
+            color: white;
             position: relative;
             display: inline-block;
             width: 100%;
@@ -394,7 +397,7 @@
 
         .section-subtitle {
             font-size: 1.15rem;
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.8);
             text-align: center;
             margin-bottom: 3.5rem;
             margin-top: 1rem;
@@ -402,7 +405,7 @@
 
         /* SERVIÇOS */
         .servicos {
-            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
         }
 
         .servicos-grid {
@@ -413,15 +416,16 @@
         }
 
         .servico-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
             padding: 2.5rem;
             border-radius: 16px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .servico-card::before {
@@ -484,24 +488,24 @@
         .servico-card h3 {
             font-size: 1.35rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: white;
             font-weight: 700;
             transition: color 0.3s;
         }
 
         .servico-card:hover h3 {
-            color: var(--primary);
+            color: #ec4899;
         }
 
         .servico-card p {
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.95rem;
             line-height: 1.7;
         }
 
         /* BENEFÍCIOS */
         .beneficios {
-            background: linear-gradient(180deg, white 0%, #f8fafc 100%);
+            background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
         }
 
         .beneficios-grid {
@@ -514,12 +518,13 @@
         .beneficio {
             text-align: center;
             padding: 2.5rem;
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 14px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .beneficio::before {
@@ -560,20 +565,20 @@
         .beneficio h3 {
             font-size: 1.25rem;
             margin-bottom: 0.8rem;
-            color: var(--primary);
+            color: #ec4899;
             font-weight: 700;
             transition: color 0.3s;
         }
 
         .beneficio p {
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* COMPLEMENTOS */
         .complementos {
-            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
         }
 
         .complementos-grid {
@@ -584,14 +589,15 @@
         }
 
         .complemento-item {
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 14px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            backdrop-filter: blur(10px);
         }
 
         .complemento-item::before {
@@ -621,7 +627,7 @@
         .complemento-item h4 {
             font-size: 1.15rem;
             margin-bottom: 0.8rem;
-            color: var(--text-dark);
+            color: white;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -630,23 +636,23 @@
         }
 
         .complemento-item:hover h4 {
-            color: var(--primary);
+            color: #ec4899;
         }
 
         .complemento-item p {
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             line-height: 1.6;
         }
 
         /* CONFIANÇA */
         .confianca-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%);
         }
 
         .confianca {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
-            border: 2px solid rgba(37, 99, 235, 0.3);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+            border: 2px solid rgba(139, 92, 246, 0.3);
             padding: 3rem;
             border-radius: 16px;
             margin: 3rem 0;
@@ -661,7 +667,7 @@
             right: -10%;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, var(--primary), transparent);
+            background: radial-gradient(circle, #8b5cf6, transparent);
             opacity: 0.1;
             border-radius: 50%;
         }
@@ -687,7 +693,7 @@
 
         /* CTA FINAL */
         .cta-final {
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #10b981 100%);
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #ec4899 100%);
             color: white;
             text-align: center;
             padding: 80px 2rem;
@@ -746,7 +752,7 @@
 
         /* FOOTER */
         footer {
-            background-color: var(--text-dark);
+            background-color: #0f0d2b;
             color: white;
             text-align: center;
             padding: 3rem 2rem;
@@ -925,7 +931,7 @@
             gap: 2rem;
             margin-top: 3rem;
             padding: 2.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
             border-radius: 16px;
         }
 
@@ -1096,8 +1102,8 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Apareça no <span>Google Maps</span> e Atenda Mais Clientes</h1>
-            <p>Seu negócio no topo das buscas locais. Mais visibilidade, mais chamadas, mais vendas.</p>
+            <h1>Apareça no <span>Google Maps</span> e Google Empresas - Atenda Mais Clientes</h1>
+            <p>Seu negócio no topo das buscas locais. Cadastro profissional, otimização e visibilidade garantida. Mais ligações, mais visitas, mais vendas.</p>
             <div class="hero-buttons">
                 <a href="https://wa.me/5561981013539?text=Oi!%20Gostaria%20de%20saber%20mais%20sobre%20o%20cadastro%20no%20Google%20Meu%20Negócio" class="btn-primary pulse">
                     💬 Fale no WhatsApp Agora
@@ -1112,7 +1118,7 @@
     <!-- SERVIÇOS PRINCIPAIS -->
     <section id="servicos" class="servicos">
         <h2 class="section-title">Nossos Serviços</h2>
-        <p class="section-subtitle">Tudo que sua empresa precisa para dominar o Google Maps</p>
+        <p class="section-subtitle">Tudo que sua empresa precisa para dominar o Google Maps e Google Empresas</p>
         
         <div class="servicos-grid">
             <div class="servico-card reveal">
@@ -1205,105 +1211,6 @@
         </div>
     </section>
 
-    <!-- VALIDAÇÕES DE CLIENTES -->
-    <section class="validacoes">
-        <h2 class="section-title">Clientes que Já Tiveram Esse Suporte</h2>
-        <p class="section-subtitle">Veja o que nossos clientes alcançaram com a Cafe Flow</p>
-        
-        <div class="validacoes-grid">
-            <div class="validacao-card reveal">
-                <div class="validacao-header">
-                    <div class="validacao-avatar">👨‍💼</div>
-                    <div class="validacao-info">
-                        <h4>Carlos Souza</h4>
-                        <p class="validacao-negocio">Restaurante Gourmet</p>
-                    </div>
-                </div>
-                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
-                <p class="validacao-texto">"Aumentei minhas reservas bastante em alguns meses. A Cafe Flow fez toda a diferença!"</p>
-            </div>
-
-            <div class="validacao-card reveal">
-                <div class="validacao-header">
-                    <div class="validacao-avatar">👩‍💼</div>
-                    <div class="validacao-info">
-                        <h4>Marina Costa</h4>
-                        <p class="validacao-negocio">Consultório Odontológico</p>
-                    </div>
-                </div>
-                <div class="validacao-stars">⭐⭐⭐⭐</div>
-                <p class="validacao-texto">"Meu consultório ficou visível no Google Maps. Recebo mais ligações agora. Bom custo-benefício."</p>
-            </div>
-
-            <div class="validacao-card reveal">
-                <div class="validacao-header">
-                    <div class="validacao-avatar">👨‍🔧</div>
-                    <div class="validacao-info">
-                        <h4>Roberto Silva</h4>
-                        <p class="validacao-negocio">Encanador Profissional</p>
-                    </div>
-                </div>
-                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
-                <p class="validacao-texto">"Minha agenda ficou cheia de chamados. Valeu muito a pena investir nesse serviço mesmo."</p>
-            </div>
-
-            <div class="validacao-card reveal">
-                <div class="validacao-header">
-                    <div class="validacao-avatar">👩‍🏫</div>
-                    <div class="validacao-info">
-                        <h4>Juliana Pereira</h4>
-                        <p class="validacao-negocio">Academia de Pilates</p>
-                    </div>
-                </div>
-                <div class="validacao-stars">⭐⭐⭐</div>
-                <p class="validacao-texto">"Teve alguns pontos que não esperava, mas no geral ajudou. Poderia melhorar o acompanhamento."</p>
-            </div>
-
-            <div class="validacao-card reveal">
-                <div class="validacao-header">
-                    <div class="validacao-avatar">👨‍🍳</div>
-                    <div class="validacao-info">
-                        <h4>Felipe Santos</h4>
-                        <p class="validacao-negocio">Padaria Artesanal</p>
-                    </div>
-                </div>
-                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
-                <p class="validacao-texto">"As pessoas encontram minha padaria facilmente. Ótimo retorno! Também fiz a planilha de controle que me ajudou bastante."</p>
-            </div>
-
-            <div class="validacao-card reveal">
-                <div class="validacao-header">
-                    <div class="validacao-avatar">👩‍⚕️</div>
-                    <div class="validacao-info">
-                        <h4>Dra. Luciana</h4>
-                        <p class="validacao-negocio">Clínica Médica</p>
-                    </div>
-                </div>
-                <div class="validacao-stars">⭐⭐⭐⭐⭐</div>
-                <p class="validacao-texto">"Minha clínica ficou muito mais visível no Google Maps. Recomendo o trabalho deles!"</p>
-            </div>
-        </div>
-
-        <div class="validacoes-stats reveal">
-            <div class="stat">
-                <h3>20+</h3>
-                <p>Clientes Apoiados</p>
-            </div>
-            <div class="stat">
-                <h3>4.7 ⭐</h3>
-                <p>Avaliação Média</p>
-            </div>
-            <div class="stat">
-                <h3>💰</h3>
-                <p>Custo Benefício</p>
-            </div>
-            <div class="stat">
-                <h3>✅</h3>
-                <p>Recomendado!</p>
-            </div>
-        </div>
-    </section>
-
     <!-- COMPLEMENTOS -->
     <section id="complementos" class="complementos">
         <h2 class="section-title">Serviços Complementares</h2>
@@ -1355,12 +1262,12 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 Cafe Flow. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Cafe Flow. Todos os direitos reservados.</p>
         <p>Especialistas em Google Meu Negócio e Aparecer no Google Maps</p>
     </footer>
 
     <script>
-        // Menu Sanduíche Mobile
+        // ===== MENU SANDUÍCHE MOBILE =====
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -1369,7 +1276,6 @@
             menuToggle.classList.toggle('active');
         });
 
-        // Fechar menu ao clicar em um link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
@@ -1377,7 +1283,6 @@
             });
         });
 
-        // Fechar menu ao clicar fora
         document.addEventListener('click', function(event) {
             const isClickInsideNav = navLinks.contains(event.target);
             const isClickInsideToggle = menuToggle.contains(event.target);
@@ -1387,6 +1292,8 @@
                 menuToggle.classList.remove('active');
             }
         });
+
+        // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1403,7 +1310,7 @@
             });
         });
 
-        // Scroll Reveal Animation
+        // ===== SCROLL REVEAL ANIMATION =====
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1421,7 +1328,7 @@
             observer.observe(el);
         });
 
-        // Mouse follow effect em cards
+        // ===== MOUSE FOLLOW EFFECT EM CARDS =====
         document.querySelectorAll('.servico-card, .beneficio').forEach(card => {
             card.addEventListener('mousemove', function(e) {
                 const rect = this.getBoundingClientRect();
@@ -1442,30 +1349,11 @@
             });
         });
 
-        // Efeito de digitação no título - DESABILIDADO
-        // const titleElement = document.querySelector('.hero h1');
-        // if (titleElement) {
-        //     const originalText = titleElement.innerText;
-        //     titleElement.innerText = '';
-        //     let index = 0;
-        //
-        //     const type = () => {
-        //         if (index < originalText.length) {
-        //             titleElement.innerText += originalText[index];
-        //             index++;
-        //             setTimeout(type, 30);
-        //         }
-        //     };
-        //
-        //     setTimeout(type, 500);
-        // }
-
-        // Botão flutuante WhatsApp
+        // ===== BOTÃO FLUTUANTE WHATSAPP =====
         const floatingWhatsapp = document.getElementById('floatingWhatsapp');
         let isScrolling = false;
 
         window.addEventListener('scroll', () => {
-            // Mostrar botão após 300px de scroll
             if (window.scrollY > 300) {
                 if (!isScrolling) {
                     floatingWhatsapp.classList.add('show');
@@ -1481,7 +1369,6 @@
             }
         });
 
-        // Efeito ao clicar no botão
         floatingWhatsapp.addEventListener('click', function() {
             this.style.transform = 'scale(0.9)';
             setTimeout(() => {
@@ -1489,8 +1376,17 @@
             }, 200);
         });
 
-        // Atualizar número do WhatsApp no botão flutuante
         floatingWhatsapp.href = floatingWhatsapp.href.replace(/\d{13}/, '5561981013539');
     </script>
+
+    <!-- Vercel Analytics -->
+    <script>
+        (function() {
+            if (typeof window !== 'undefined') {
+                window.__VERCEL_ANALYTICS__ = true;
+            }
+        })();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
