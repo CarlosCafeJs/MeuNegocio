@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <title>Cafe Flow | Google Meu Negócio e Apareça no Google Maps</title>
     <meta name="description" content="Cafe Flow - Cadastro, otimização e gestão profissional no Google Meu Negócio. Apareça no Google Maps, atraia clientes locais, aumente visibilidade digital e gere mais ligações para seu negócio.">
     <meta name="keywords" content="Google Meu Negócio, Google Maps, Google Empresas, cadastro Google Maps, otimização Google Maps, aparecer no Google Maps, visibilidade local, clientes locais, marketing local, SEO local, busca local, mapa Google, perfil comercial, negócio online">
@@ -63,10 +64,9 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            background:white ;
-            /* background: var(--gradient-1); */
+            background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -82,8 +82,8 @@
         }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
             -webkit-text-fill-color: unset;
             background: none;
@@ -1106,10 +1106,10 @@
             <h1>Apareça no <span>Google Maps</span> e Google Empresas - Atenda Mais Clientes</h1>
             <p>Seu negócio no topo das buscas locais. Cadastro profissional, otimização e visibilidade garantida. Mais ligações, mais visitas, mais vendas.</p>
             <div class="hero-buttons">
-                <a href="https://wa.me/5561981013539?text=Oi!%20Gostaria%20de%20saber%20mais%20sobre%20o%20cadastro%20no%20Google%20Meu%20Negócio" class="btn-primary pulse">
+                <a href="https://wa.me/5561981013539?text=Oi!%20Gostaria%20de%20saber%20mais%20sobre%20o%20cadastro%20no%20Google%20Meu%20Negócio" class="btn-primary pulse" data-analytics="hero-whatsapp">
                     💬 Fale no WhatsApp Agora
                 </a>
-                <a href="#servicos" class="btn-secondary">
+                <a href="#servicos" class="btn-secondary" data-analytics="hero-servicos">
                     ↓ Conheça Nossos Serviços
                 </a>
             </div>
@@ -1255,7 +1255,7 @@
         <h2>Coloque Sua Empresa no Google Maps Hoje</h2>
         <p>Não espere mais. Comece a receber clientes pelo Google Maps agora mesmo.</p>
         <div class="cta-buttons">
-            <a href="https://wa.me/5561981013539?text=Oi!%20Quero%20colocar%20meu%20negócio%20no%20Google%20Maps%20agora!" class="btn-primary">
+            <a href="https://wa.me/5561981013539?text=Oi!%20Quero%20colocar%20meu%20negócio%20no%20Google%20Maps%20agora!" class="btn-primary" data-analytics="cta-whatsapp">
                 💬 Quero Começar Agora
             </a>
         </div>
@@ -1378,16 +1378,63 @@
         });
 
         floatingWhatsapp.href = floatingWhatsapp.href.replace(/\d{13}/, '5561981013539');
+
+        // ===== VERCEL ANALYTICS TRACKING =====
+        // Track button clicks
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-whatsapp').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (window.va) {
+                    window.va('event', {
+                        name: 'Clique em CTA',
+                        data: { button: this.textContent.trim() }
+                    });
+                }
+            });
+        });
+
+        // Track scroll depth
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercentage > maxScroll) {
+                maxScroll = scrollPercentage;
+            }
+        });
+
+        // Track page scroll on leave
+        window.addEventListener('beforeunload', function() {
+            if (window.va) {
+                window.va('event', {
+                    name: 'Profundidade de Scroll',
+                    data: { percentage: Math.round(maxScroll) }
+                });
+            }
+        });
+
+        // Track section views
+        document.querySelectorAll('section').forEach(section => {
+            const sectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && window.va) {
+                        window.va('event', {
+                            name: 'Visualizou Seção',
+                            data: { section: entry.target.id || 'sem-id' }
+                        });
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            sectionObserver.observe(section);
+        });
     </script>
 
     <!-- Vercel Analytics -->
-    <script>
-        (function() {
-            if (typeof window !== 'undefined') {
-                window.__VERCEL_ANALYTICS__ = true;
-            }
-        })();
-    </script>
+    <script defer src="https://cdn.vercel-analytics.com/v1/script.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+        // Vercel Web Analytics Configuration
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments) };
+    </script>
 </body>
 </html>
